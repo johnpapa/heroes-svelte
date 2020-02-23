@@ -3,7 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
-import autoPreprocess from 'svelte-preprocess';
+import postcss from 'rollup-plugin-postcss';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -21,11 +21,11 @@ export default {
       dev: !production,
       // we'll extract any component CSS out into
       // a separate file - better for performance
-      preprocess: autoPreprocess(),
       css: css => {
         css.write('public/build/bundle.css');
       }
     }),
+    postcss(),
 
     // If you have external dependencies installed from
     // npm, you'll most likely need these plugins. In

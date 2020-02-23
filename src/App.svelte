@@ -1,16 +1,13 @@
 <script>
-  import { Router, Link, Route } from "svelte-routing";
-  import Heroes from "./heroes/Heroes.svelte";
-  import Villains from "./Villains.svelte";
-  import HeaderBar from "./components/HeaderBar.svelte";
-  import NavBar from "./components/NavBar.svelte";
+  import './styles.scss';
+  import { Router, Link, Route } from 'svelte-routing';
+  import Heroes from './heroes/Heroes.svelte';
+  import Villains from './Villains.svelte';
+  import HeaderBar from './components/HeaderBar.svelte';
+  import NavBar from './components/NavBar.svelte';
 
-  export let url = "";
+  export let url = '';
 </script>
-
-<!-- <style src="./styles.scss">
-
-</style> -->
 
 <HeaderBar />
 <div class="section columns">

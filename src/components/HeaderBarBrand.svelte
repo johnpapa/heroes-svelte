@@ -4,7 +4,7 @@
     href="https://svelte.dev/"
     target="_blank"
     rel="noopener noreferrer">
-    <i class="fab js-logo fa-sveltejs fa-2x" aria-hidden="true" />
+    <img src="./svelte-icon.png" alt="Svelte"/>
   </a>
   <router-link to="/" class="navbar-item nav-home">
     <span class="tour">TOUR</span>
