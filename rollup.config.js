@@ -21,10 +21,10 @@ export default {
       dev: !production,
       // we'll extract any component CSS out into
       // a separate file - better for performance
-			preprocess: autoPreprocess(),
+      preprocess: autoPreprocess(),
       css: css => {
         css.write('public/build/bundle.css');
-      },
+      }
     }),
 
     // If you have external dependencies installed from
