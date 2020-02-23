@@ -1,14 +1,20 @@
 <script>
-  import { onMount } from "svelte";
-  import ListHeader from "../components/ListHeader.svelte";
+  import { onMount } from 'svelte';
+  import ListHeader from '../components/ListHeader.svelte';
+  import HeroList from './HeroList.svelte';
+  import { getHeroesAction } from '../shared/hero-data';
 
-  let routePath = "/heroes";
-  let title = "Heroes";
-  function getHeroes() {
-    console.log("getting heroes");
+  let heroes = [];
+  let selected = {};
+
+  let routePath = '/heroes';
+  let title = 'Heroes';
+  async function getHeroes() {
+    heroes = await getHeroesAction();
+    console.log('getting heroes');
   }
   function addHero() {
-    console.log("add hero");
+    console.log('add hero');
   }
 
   onMount(() => {
@@ -24,17 +30,16 @@
     on:refresh={getHeroes} />
   <div class="columns is-multiline is-variable">
     <div class="column is-8" v-if="heroes">
-      <!-- <HeroList
-        v-if="!selected"
-        :heroes="heroes"
-        :selectedHero="selected"
-        @deleted="askToDelete($event)"
-        @selected="select($event)" />
+      <HeroList v-if="!selected" bind:heroes bind:selectedHero={selected} />
+      <!--
+         on:deleted="askToDelete($event)"
+        on:selected="select($event)" />
       <HeroDetail
         v-if="selected"
         :hero="selected"
         @unselect="clear"
-        @save="save" /> -->
+        @save="save" />
+      -->
     </div>
   </div>
 

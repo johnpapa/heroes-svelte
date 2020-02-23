@@ -11,14 +11,14 @@
 
 <HeaderBar />
 <div class="section columns">
-  <main class="column">
-    <Router {url}>
-      <NavBar />
+  <Router {url}>
+    <NavBar />
+    <main class="column">
       <div>
         <Route path="/villains" component={Villains} />
         <Route path="/heroes" component={Heroes} />
         <Route path="/" component={Heroes} />
       </div>
-    </Router>
-  </main>
+    </main>
+  </Router>
 </div>

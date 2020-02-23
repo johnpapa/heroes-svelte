@@ -1,5 +1,5 @@
 <script>
-  import { Router, Link, Route } from "svelte-routing";
+  import { Router, Link, Route } from 'svelte-routing';
 </script>
 
 <nav class="column is-2 menu">
