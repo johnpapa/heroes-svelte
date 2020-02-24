@@ -100,3 +100,49 @@ Thank you to [Sarah Drasner](https://twitter.com/), [Brian Holt](https://twitter
 - [Debugging Angular in VS Code](https://code.visualstudio.com/docs/nodejs/angular-tutorial?wt.mc_id=heroessvelte-github-jopapa)
 - [Debugging React in VS Code](https://code.visualstudio.com/docs/nodejs/reactjs-tutorial?wt.mc_id=heroessvelte-github-jopapa)
 - [Debugging Vue in VS Code](https://code.visualstudio.com/docs/nodejs/vuejs-tutorial?wt.mc_id=heroessvelte-github-jopapa)
+
+## Checklist
+
+Each of the apps written in the various frameworks/libraries has been designed to have similar features. While consistency is key, I want these apps to be comparable, yet done in an way authentic to each respective framework.
+
+Each project represents heroes and villains. The user can list them and edit them.
+
+Here is a list of those features:
+
+- [x] Start from the official quick-start and CLI
+- [x] Client side routing
+  - [x] Three main routes Heroes, Villains, About
+  - [x] Handles an erroneous route, leading to a PageNotFound component
+  - [x] Active route is highlighted in the nav menu
+  - [x] Routing should use html5 mode, not hash routes
+- [x] API
+  - [x] JSON server as a backend
+  - [x] App served on one port which can access API on another port proxy or CORS)
+  - [x] HTTP - Uses most common client http libraries for each framework
+- [x] Styling
+  - [x] Bulma
+  - [x] SASS
+  - [x] Font Awesome
+- [x] Editing - Heroes and Villains will be editable (add, update, delete)
+- [x] State/Store - Uses a store for state management
+- [x] Web development server handles fallback routing
+- [x] Generic components
+  - [x] Modal
+  - [x] Button Tool
+  - [x] Card
+  - [x] Header bar
+  - [x] List header
+  - [x] Nav bar
+- [x] Props in and emit events out
+- [x] Environment variable for the API location
+
+<!--
+      [value]="name" // angular
+      value="{name}" //react
+      :value="name" // vue
+      value="{name}" // svelte
+
+      (clicked)="saveHero()" // angular
+      onClick="{saveHero}" //react
+      @clicked="saveHero()" // vue
+      on:clicked="{saveHero}" // svelte -->
