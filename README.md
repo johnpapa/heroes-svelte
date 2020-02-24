@@ -79,10 +79,11 @@ You can host the app any way you prefer. I chose Docker because it is familiar t
 
 ## Thank You
 
-Thank you to [Sarah Drasner](https://twitter.com/), [Brian Holt](https://twitter.com/), [Chris Noring](https://twitter.com/), [Craig Shoemaker](https://twitter.com/), and [Ward Bell](https://twitter.com/wardbell) for providing input and reviewing the code in the three repos for the Angular, React, and Vue apps:
+Thank you to [Sarah Drasner](https://twitter.com/), [Brian Holt](https://twitter.com/), [Chris Noring](https://twitter.com/), [Craig Shoemaker](https://twitter.com/), and [Ward Bell](https://twitter.com/wardbell) for providing input and reviewing the code in some of the repos for the Angular, React, Svelte, and Vue apps:
 
 - [heroes-angular](https://github.com/johnpapa/heroes-angular)
 - [heroes-react](https://github.com/johnpapa/heroes-react)
+- [heroes-svelte](https://github.com/johnpapa/heroes-svelte)
 - [heroes-vue](https://github.com/johnpapa/heroes-vue)
 
 ## Resources
