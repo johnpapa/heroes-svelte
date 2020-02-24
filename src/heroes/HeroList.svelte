@@ -39,7 +39,5 @@
         </footer>
       </div>
     </li>
-  {:else}
-    <p>No tasks today!</p>
   {/each}
 </ul>
