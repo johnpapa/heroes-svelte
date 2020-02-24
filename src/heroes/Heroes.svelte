@@ -19,12 +19,12 @@
   let showModal = false;
 
   onMount(async () => await getHeroes());
+
   function enableAddMode() {
     selected = {};
   }
 
-  function askToDelete(event) {
-    let hero = event.detail;
+  function askToDelete({ detail: hero }) {
     heroToDelete = hero;
     showModal = true;
     if (heroToDelete.name) {
@@ -34,9 +34,14 @@
     console.log(`asked to delete ${hero.name}`);
   }
 
+  function clear() {
+    selected = null;
+  }
+
   function closeModal() {
     showModal = false;
   }
+
   async function deleteHero() {
     closeModal();
     if (heroToDelete) {
@@ -62,8 +67,7 @@
     await getHeroes();
   }
 
-  function select(event) {
-    let hero = event.detail;
+  function select({ detail: hero }) {
     selected = hero;
     console.log(`selected ${hero.name}`);
   }
@@ -81,10 +85,7 @@
         {#if !selected}
           <HeroList {heroes} on:deleted={askToDelete} on:selected={select} />
         {:else}
-          <HeroDetail
-            hero={selected}
-            on:unselect={() => (selected = null)}
-            on:save={save} />
+          <HeroDetail hero={selected} on:unselect={clear} on:save={save} />
         {/if}
       </div>
     {/if}
