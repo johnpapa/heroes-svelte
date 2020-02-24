@@ -1,7 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import ListHeader from '../components/ListHeader.svelte';
-  import Modal from '../components/Modal.svelte';
+  import { ListHeader, Modal } from '../components';
   import HeroList from './HeroList.svelte';
   import HeroDetail from './HeroDetail.svelte';
   import {
@@ -85,10 +84,7 @@
     {#if heroes}
       <div class="column is-8">
         {#if !selected}
-          <HeroList
-            bind:heroes
-            on:deleted={askToDelete}
-            on:selected={select} />
+          <HeroList bind:heroes on:deleted={askToDelete} on:selected={select} />
         {:else}
           <HeroDetail bind:hero={selected} on:unselect={clear} on:save={save} />
         {/if}

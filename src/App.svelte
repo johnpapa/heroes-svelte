@@ -3,8 +3,8 @@
   import { Router, Link, Route } from 'svelte-routing';
   import Heroes from './heroes/Heroes.svelte';
   import Villains from './Villains.svelte';
-  import HeaderBar from './components/HeaderBar.svelte';
-  import NavBar from './components/NavBar.svelte';
+
+  import { HeaderBar, NavBar, PageNotFound } from './components';
 
   export let url = '';
 </script>
@@ -15,9 +15,10 @@
     <NavBar />
     <main class="column">
       <div>
-        <Route path="/villains" component={Villains} />
-        <Route path="/heroes" component={Heroes} />
         <Route path="/" component={Heroes} />
+        <Route path="/heroes" component={Heroes} />
+        <Route path="/villains" component={Villains} />
+        <Route path="**" component={PageNotFound} />
       </div>
     </main>
   </Router>

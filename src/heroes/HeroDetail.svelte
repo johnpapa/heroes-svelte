@@ -1,6 +1,6 @@
 <script>
   import { onMount, createEventDispatcher } from 'svelte';
-  import ButtonFooter from '../components/ButtonFooter.svelte';
+  import { ButtonFooter } from '../components';
 
   export let hero = {};
 

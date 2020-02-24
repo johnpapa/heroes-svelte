@@ -1,8 +1,7 @@
 <script>
   import { createEventDispatcher } from 'svelte';
 
-  import CardContent from '../components/CardContent.svelte';
-  import ButtonFooter from '../components/ButtonFooter.svelte';
+  import { ButtonFooter, CardContent } from '../components';
 
   const dispatch = createEventDispatcher();
 
