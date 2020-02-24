@@ -6,12 +6,10 @@
   export let heroes = [];
 
   function deleteHero(hero) {
-    console.log(`You tried to delete ${hero.name}`);
     dispatch('deleted', hero);
   }
 
   function selectHero(hero) {
-    console.log(`You tried to select ${hero.name}`);
     dispatch('selected', hero);
   }
 </script>

@@ -29,9 +29,7 @@
     showModal = true;
     if (heroToDelete.name) {
       message = `Would you like to delete ${heroToDelete.name}?`;
-      console.log(message);
     }
-    console.log(`asked to delete ${hero.name}`);
   }
 
   function clear() {
@@ -54,7 +52,6 @@
 
   async function getHeroes() {
     heroes = (await getHeroesAction()) || [];
-    console.log('getting heroes');
   }
 
   async function save({ detail: hero }) {
