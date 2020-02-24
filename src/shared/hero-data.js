@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { parseItem, parseList } from './action-utils';
+import { parseItem, parseList } from './http-utils';
 import API from './config';
 
 export async function getHeroesAction() {

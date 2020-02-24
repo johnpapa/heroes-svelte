@@ -8,7 +8,7 @@
     deleteHeroAction,
     addHeroAction,
     updateHeroAction
-  } from '../shared/hero-data';
+  } from '../shared';
 
   let heroes = [];
   let selected = undefined;
