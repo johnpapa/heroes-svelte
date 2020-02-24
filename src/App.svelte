@@ -1,6 +1,7 @@
 <script>
   import './styles.scss';
   import { Router, Link, Route } from 'svelte-routing';
+  import About from './About.svelte';
   import Heroes from './heroes/Heroes.svelte';
   import Villains from './Villains.svelte';
 
@@ -18,6 +19,7 @@
         <Route path="/" component={Heroes} />
         <Route path="/heroes" component={Heroes} />
         <Route path="/villains" component={Villains} />
+        <Route path="/about" component={About} />
         <Route path="**" component={PageNotFound} />
       </div>
     </main>
