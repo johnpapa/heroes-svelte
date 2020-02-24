@@ -2,11 +2,21 @@
   import { onMount, createEventDispatcher } from 'svelte';
   import { ButtonFooter } from '../components';
 
-  export let hero = {};
-
   const dispatch = createEventDispatcher();
+  export let hero = {};
   let addMode = false;
   let editingHero = { ...hero };
+
+  onMount(() => watchHero());
+
+  function clear() {
+    dispatch('unselect');
+  }
+
+  function saveHero() {
+    dispatch('save', editingHero);
+    clear();
+  }
 
   function watchHero() {
     if (hero && hero.id) {
@@ -17,15 +27,6 @@
       addMode = true;
     }
   }
-
-  function saveHero() {
-    dispatch('save', editingHero);
-    clear();
-  }
-  function clear() {
-    dispatch('unselect');
-  }
-  onMount(() => watchHero());
 </script>
 
 <div class="card edit-detail">

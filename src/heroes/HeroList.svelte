@@ -1,15 +1,15 @@
 <script>
   import { createEventDispatcher } from 'svelte';
-
   import { ButtonFooter, CardContent } from '../components';
 
   const dispatch = createEventDispatcher();
-
   export let heroes = [];
+
   function deleteHero(hero) {
     console.log(`You tried to delete ${hero.name}`);
     dispatch('deleted', hero);
   }
+
   function selectHero(hero) {
     console.log(`You tried to select ${hero.name}`);
     dispatch('selected', hero);
@@ -17,7 +17,6 @@
 </script>
 
 <ul class="list">
-
   {#each heroes as hero, index (hero.id)}
     <li role="presentation">
       <div class="card">

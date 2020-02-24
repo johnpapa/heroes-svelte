@@ -18,31 +18,25 @@
   let message = '';
   let showModal = false;
 
-  async function getHeroes() {
-    heroes = (await getHeroesAction()) || [];
-    console.log('getting heroes');
-  }
+  onMount(async () => await getHeroes());
   function enableAddMode() {
     selected = {};
   }
-  function select(event) {
-    let hero = event.detail;
-    selected = hero;
-    console.log(`selected ${hero.name}`);
-  }
+
   function askToDelete(event) {
     let hero = event.detail;
-
     heroToDelete = hero;
     showModal = true;
     if (heroToDelete.name) {
       message = `Would you like to delete ${heroToDelete.name}?`;
       console.log(message);
     }
-
     console.log(`asked to delete ${hero.name}`);
   }
 
+  function closeModal() {
+    showModal = false;
+  }
   async function deleteHero() {
     closeModal();
     if (heroToDelete) {
@@ -51,6 +45,11 @@
       await getHeroes();
     }
     clear();
+  }
+
+  async function getHeroes() {
+    heroes = (await getHeroesAction()) || [];
+    console.log('getting heroes');
   }
 
   async function save({ detail: hero }) {
@@ -63,15 +62,11 @@
     await getHeroes();
   }
 
-  function closeModal() {
-    showModal = false;
+  function select(event) {
+    let hero = event.detail;
+    selected = hero;
+    console.log(`selected ${hero.name}`);
   }
-
-  function clear() {
-    selected = null;
-  }
-
-  onMount(async () => await getHeroes());
 </script>
 
 <div class="content-container">
@@ -86,7 +81,10 @@
         {#if !selected}
           <HeroList {heroes} on:deleted={askToDelete} on:selected={select} />
         {:else}
-          <HeroDetail hero={selected} on:unselect={clear} on:save={save} />
+          <HeroDetail
+            hero={selected}
+            on:unselect={() => (selected = null)}
+            on:save={save} />
         {/if}
       </div>
     {/if}
