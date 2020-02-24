@@ -13,7 +13,7 @@
 </script>
 
 <div class="content-title-group">
-  <Link bind:to={routePath}>
+  <Link to={routePath}>
     <h2 class="title">{title}</h2>
   </Link>
   <button class="button add-button" on:click={() => add()} aria-label="add">

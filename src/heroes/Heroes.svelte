@@ -76,25 +76,25 @@
 
 <div class="content-container">
   <ListHeader
-    bind:title
-    bind:routePath
+    {title}
+    {routePath}
     on:add={enableAddMode}
     on:refresh={getHeroes} />
   <div class="columns is-multiline is-variable">
     {#if heroes}
       <div class="column is-8">
         {#if !selected}
-          <HeroList bind:heroes on:deleted={askToDelete} on:selected={select} />
+          <HeroList {heroes} on:deleted={askToDelete} on:selected={select} />
         {:else}
-          <HeroDetail bind:hero={selected} on:unselect={clear} on:save={save} />
+          <HeroDetail hero={selected} on:unselect={clear} on:save={save} />
         {/if}
       </div>
     {/if}
   </div>
 
   <Modal
-    bind:message
-    bind:isOpen={showModal}
+    {message}
+    isOpen={showModal}
     on:handleNo={closeModal}
     on:handleYes={deleteHero} />
 </div>

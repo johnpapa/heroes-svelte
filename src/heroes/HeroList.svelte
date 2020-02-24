@@ -21,9 +21,7 @@
   {#each heroes as hero, index (hero.id)}
     <li role="presentation">
       <div class="card">
-        <CardContent
-          bind:name={hero.name}
-          bind:description={hero.description} />
+        <CardContent name={hero.name} description={hero.description} />
         <footer class="card-footer">
           <ButtonFooter
             className="delete-item"
