@@ -1,0 +1,83 @@
+<script>
+  import { createEventDispatcher } from 'svelte';
+  import ButtonFooter from '../components/ButtonFooter.svelte';
+
+  export let hero = {};
+
+  const dispatch = createEventDispatcher();
+  let addMode = false;
+  let editingHero = { ...hero };
+
+  function watchHero() {
+    if (hero && hero.id) {
+      editingHero = { ...hero };
+      addMode = false;
+    } else {
+      editingHero = { id: undefined, name: '', description: '' };
+      addMode = true;
+    }
+  }
+
+  function saveHero() {
+    dispatch('save', editingHero);
+    clear();
+  }
+  function clear() {
+    dispatch('unselect');
+  }
+  onMount(() => watchHero());
+</script>
+
+<div class="card edit-detail">
+  <header class="card-header">
+    <p class="card-header-title">{editingHero.name}</p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      {#if editingHero.id}
+        <div class="field">
+          <label class="label" for="id">id</label>
+          <input
+            class="input"
+            name="id"
+            placeholder="e.g. HeroColleen"
+            readonly
+            type="text"
+            bind:value={editingHero.id} />
+        </div>
+      {/if}
+      <div class="field">
+        <label class="label" for="name">name</label>
+        <input
+          class="input"
+          name="name"
+          placeholder="e.g. Colleen"
+          type="text"
+          bind:value={editingHero.name} />
+      </div>
+      <div class="field">
+        <label class="label" for="description">description</label>
+        <input
+          class="input"
+          name="description"
+          placeholder="dance fight!"
+          type="text"
+          bind:value={editingHero.description} />
+      </div>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <ButtonFooter
+      className="card-footer-item cancel-button"
+      iconClasses="fas fa-undo"
+      label="Cancel"
+      item={editingHero}
+      on:clicked={clear} />
+    <ButtonFooter
+      className="card-footer-item save-button"
+      iconClasses="fas fa-save"
+      label="Save"
+      item={editingHero}
+      on:clicked={saveHero} />
+  </footer>
+</div>

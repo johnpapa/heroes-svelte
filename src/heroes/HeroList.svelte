@@ -1,25 +1,51 @@
 <script>
-  import CardContent from '../components/CardContent.svelte';
+  import { createEventDispatcher } from 'svelte';
 
-  const captains = console;
+  import CardContent from '../components/CardContent.svelte';
+  import ButtonFooter from '../components/ButtonFooter.svelte';
+
+  const dispatch = createEventDispatcher();
 
   export let heroes = [];
   function deleteHero(hero) {
-    this.$emit('deleted', hero);
-    captains.log(`You tried to delete ${hero.name}`);
+    console.log(`You tried to delete ${hero.name}`);
+    dispatch('deleted', hero);
   }
   function selectHero(hero) {
-    captains.log(`You tried to select ${hero.name}`);
-    this.$emit('selected', hero);
+    console.log(`You tried to select ${hero.name}`);
+    dispatch('selected', hero);
   }
 </script>
 
 <ul class="list">
-  {#each heroes as { id, name, description }, i}
+
+  {#each heroes as hero, index (hero.id)}
     <li role="presentation">
       <div class="card">
-        <CardContent bind:name bind:description />
+        <CardContent
+          bind:name={hero.name}
+          bind:description={hero.description} />
+        <footer class="card-footer">
+          <ButtonFooter
+            className="delete-item"
+            iconClasses="fas fa-trash"
+            label="Delete"
+            dataId={hero.id}
+            dataIndex={index}
+            item={hero}
+            on:clicked={deleteHero(hero)} />
+          <ButtonFooter
+            className="edit-item"
+            iconClasses="fas fa-edit"
+            label="Edit"
+            dataId={hero.id}
+            dataIndex={index}
+            item={hero}
+            on:clicked={selectHero(hero)} />
+        </footer>
       </div>
     </li>
+  {:else}
+    <p>No tasks today!</p>
   {/each}
 </ul>

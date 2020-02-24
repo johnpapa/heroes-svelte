@@ -5,13 +5,11 @@
   const dispatch = createEventDispatcher();
   export let title = '';
   export let routePath = '';
-  export function add() {
+
+  function add() {
     console.log('add a hero');
     dispatch('add');
   }
-  // export function refresh() {
-  // dispatch("refresh");
-  // }
 </script>
 
 <div class="content-title-group">

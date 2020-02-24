@@ -2,15 +2,13 @@ import axios from 'axios';
 import { parseItem, parseList } from './action-utils';
 import API from './config';
 
-const captains = console;
-
 export async function getHeroesAction() {
   try {
     const response = await axios.get(`${API}/heroes`);
     const heroes = parseList(response);
     return heroes;
   } catch (error) {
-    return captains.log(error);
+    return console.log(error);
   }
 }
 
@@ -20,7 +18,7 @@ export async function deleteHeroAction(hero) {
     parseItem(response, 200);
     return null;
   } catch (error) {
-    captains.error(error);
+    console.error(error);
   }
 }
 export async function updateHeroAction(hero) {
@@ -29,7 +27,7 @@ export async function updateHeroAction(hero) {
     const updatedHero = parseItem(response, 200);
     return updatedHero;
   } catch (error) {
-    captains.error(error);
+    console.error(error);
   }
 }
 export async function addHeroAction(hero) {
@@ -38,6 +36,6 @@ export async function addHeroAction(hero) {
     const addedHero = parseItem(response, 201);
     return addedHero;
   } catch (error) {
-    captains.error(error);
+    console.error(error);
   }
 }
