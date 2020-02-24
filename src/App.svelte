@@ -3,7 +3,7 @@
   import { Router, Link, Route } from 'svelte-routing';
   import About from './About.svelte';
   import Heroes from './heroes/Heroes.svelte';
-  import Villains from './Villains.svelte';
+  import Villains from './villains/Villains.svelte';
 
   import { HeaderBar, NavBar, PageNotFound } from './components';
 
