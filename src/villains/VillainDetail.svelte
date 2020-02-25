@@ -27,6 +27,18 @@
       addMode = true;
     }
   }
+
+  const cancelOptions = {
+    className: 'card-footer-item cancel-button',
+    label: 'Cancel',
+    iconClasses: 'fas fa-undo'
+  };
+
+  const saveOptions = {
+    className: 'card-footer-item save-button',
+    label: 'Save',
+    iconClasses: 'fas fa-save'
+  };
 </script>
 
 <div class="card edit-detail">
@@ -67,17 +79,11 @@
       </div>
     </div>
   </div>
+
   <footer class="card-footer">
+    <ButtonFooter {...cancelOptions} item={editingVillain} on:clicked={clear} />
     <ButtonFooter
-      className="card-footer-item cancel-button"
-      iconClasses="fas fa-undo"
-      label="Cancel"
-      item={editingVillain}
-      on:clicked={clear} />
-    <ButtonFooter
-      className="card-footer-item save-button"
-      iconClasses="fas fa-save"
-      label="Save"
+      {...saveOptions}
       item={editingVillain}
       on:clicked={saveVillain} />
   </footer>

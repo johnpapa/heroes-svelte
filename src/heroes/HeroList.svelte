@@ -12,6 +12,18 @@
   function selectHero(hero) {
     dispatch('selected', hero);
   }
+
+  const deleteOptions = {
+    className: 'delete-item',
+    label: 'Delete',
+    iconClasses: 'fas fa-trash'
+  };
+
+  const editOptions = {
+    className: 'edit-item',
+    label: 'Edit',
+    iconClasses: 'fas fa-edit'
+  };
 </script>
 
 <ul class="list">
@@ -21,17 +33,13 @@
         <CardContent name={hero.name} description={hero.description} />
         <footer class="card-footer">
           <ButtonFooter
-            className="delete-item"
-            iconClasses="fas fa-trash"
-            label="Delete"
+            {...deleteOptions}
             dataId={hero.id}
             dataIndex={index}
             item={hero}
             on:clicked={deleteHero(hero)} />
           <ButtonFooter
-            className="edit-item"
-            iconClasses="fas fa-edit"
-            label="Edit"
+            {...editOptions}
             dataId={hero.id}
             dataIndex={index}
             item={hero}

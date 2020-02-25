@@ -12,6 +12,18 @@
   function selectVillain(villain) {
     dispatch('selected', villain);
   }
+
+  const deleteOptions = {
+    className: 'delete-item',
+    label: 'Delete',
+    iconClasses: 'fas fa-trash'
+  };
+
+  const editOptions = {
+    className: 'edit-item',
+    label: 'Edit',
+    iconClasses: 'fas fa-edit'
+  };
 </script>
 
 <ul class="list">
@@ -21,17 +33,13 @@
         <CardContent name={villain.name} description={villain.description} />
         <footer class="card-footer">
           <ButtonFooter
-            className="delete-item"
-            iconClasses="fas fa-trash"
-            label="Delete"
+            {...deleteOptions}
             dataId={villain.id}
             dataIndex={index}
             item={villain}
             on:clicked={deleteVillain(villain)} />
           <ButtonFooter
-            className="edit-item"
-            iconClasses="fas fa-edit"
-            label="Edit"
+            {...editOptions}
             dataId={villain.id}
             dataIndex={index}
             item={villain}
