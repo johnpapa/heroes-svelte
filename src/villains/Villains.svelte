@@ -4,13 +4,15 @@
   import VillainList from './VillainList.svelte';
   import VillainDetail from './VillainDetail.svelte';
   import {
+    state,
     getVillainsAction,
     deleteVillainAction,
     addVillainAction,
     updateVillainAction
-  } from '../shared';
+  } from '../store';
 
-  let villains = [];
+  const { villains } = state;
+
   let selected = undefined;
   let routePath = '/villains';
   let title = 'Villains';
@@ -45,13 +47,12 @@
     if (villainToDelete) {
       console.log(`You said you want to delete ${villainToDelete.name}`);
       await deleteVillainAction(villainToDelete);
-      await getVillains();
     }
     clear();
   }
 
   async function getVillains() {
-    villains = (await getVillainsAction()) || [];
+    await getVillainsAction();
   }
 
   async function save({ detail: villain }) {
@@ -61,7 +62,6 @@
     } else {
       await addVillainAction(villain);
     }
-    await getVillains();
   }
 
   function select({ detail: villain }) {
@@ -77,15 +77,18 @@
     on:add={enableAddMode}
     on:refresh={getVillains} />
   <div class="columns is-multiline is-variable">
-    {#if villains}
+    {#if $villains}
       <div class="column is-8">
         {#if !selected}
           <VillainList
-            {villains}
+            villains={$villains}
             on:deleted={askToDelete}
             on:selected={select} />
         {:else}
-          <VillainDetail villain={selected} on:unselect={clear} on:save={save} />
+          <VillainDetail
+            villain={selected}
+            on:unselect={clear}
+            on:save={save} />
         {/if}
       </div>
     {/if}
