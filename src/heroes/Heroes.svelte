@@ -4,13 +4,15 @@
   import HeroList from './HeroList.svelte';
   import HeroDetail from './HeroDetail.svelte';
   import {
+    state,
     getHeroesAction,
     deleteHeroAction,
     addHeroAction,
     updateHeroAction
-  } from '../shared';
+  } from '../store';
 
-  let heroes = [];
+  const { heroes } = state;
+
   let selected = undefined;
   let routePath = '/heroes';
   let title = 'Heroes';
@@ -45,23 +47,21 @@
     if (heroToDelete) {
       console.log(`You said you want to delete ${heroToDelete.name}`);
       await deleteHeroAction(heroToDelete);
-      await getHeroes();
     }
     clear();
   }
 
   async function getHeroes() {
-    heroes = (await getHeroesAction()) || [];
+    await getHeroesAction();
   }
 
   async function save({ detail: hero }) {
     console.log('hero changed', hero);
     if (hero.id) {
-      await updateHeroAction(hero);
+      const newHero = await updateHeroAction(hero);
     } else {
-      await addHeroAction(hero);
+      const newHero = await addHeroAction(hero);
     }
-    await getHeroes();
   }
 
   function select({ detail: hero }) {
@@ -77,10 +77,13 @@
     on:add={enableAddMode}
     on:refresh={getHeroes} />
   <div class="columns is-multiline is-variable">
-    {#if heroes}
+    {#if $heroes}
       <div class="column is-8">
         {#if !selected}
-          <HeroList {heroes} on:deleted={askToDelete} on:selected={select} />
+          <HeroList
+            heroes={$heroes}
+            on:deleted={askToDelete}
+            on:selected={select} />
         {:else}
           <HeroDetail hero={selected} on:unselect={clear} on:save={save} />
         {/if}
