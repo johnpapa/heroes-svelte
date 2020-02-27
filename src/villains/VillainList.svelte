@@ -27,7 +27,7 @@
 </script>
 
 <ul class="list">
-  {#each Object.entries(villains) as [villain, { id, name, description }], index (id)}
+  {#each villains as { id, name, description }, i (id)}
     <li role="presentation">
       <div class="card">
         <CardContent {name} {description} />
@@ -35,15 +35,15 @@
           <ButtonFooter
             {...deleteOptions}
             dataId={id}
-            dataIndex={index}
-            item={villain}
-            on:clicked={deleteVillain(villain)} />
+            dataIndex={i}
+            item={villains[i]}
+            on:clicked={deleteVillain(villains[i])} />
           <ButtonFooter
             {...editOptions}
             dataId={id}
-            dataIndex={index}
-            item={villain}
-            on:clicked={selectVillain(villain)} />
+            dataIndex={i}
+            item={villains[i]}
+            on:clicked={selectVillain(villains[i])} />
         </footer>
       </div>
     </li>
