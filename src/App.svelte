@@ -5,7 +5,7 @@
   import Heroes from './heroes/Heroes.svelte';
   import Villains from './villains/Villains.svelte';
 
-  import { HeaderBar, NavBar, PageNotFound } from './components';
+  import { HeaderBar, NavBar, PageNotFound, Redirect } from './components';
 
   export let url = '';
 </script>
@@ -16,7 +16,9 @@
     <NavBar />
     <main class="column">
       <div>
-        <Route path="/" component={Heroes} />
+        <Route path="/">
+          <Redirect path="/heroes" />
+        </Route>
         <Route path="/heroes" component={Heroes} />
         <Route path="/villains" component={Villains} />
         <Route path="/about" component={About} />

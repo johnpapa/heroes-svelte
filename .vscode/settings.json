@@ -15,8 +15,7 @@
     "statusBar.foreground": "#e7e7e7",
     "panel.border": "#ff511a",
     "sideBar.border": "#ff511a",
-    "editorGroup.border": "#ff511a",
-    "tab.activeBorder": "#ff511a"
+    "editorGroup.border": "#ff511a"
   },
   "peacock.color": "#e63700"
 }
