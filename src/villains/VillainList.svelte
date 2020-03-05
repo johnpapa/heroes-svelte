@@ -1,16 +1,16 @@
 <script>
-  import { createEventDispatcher } from 'svelte';
-  import { ButtonFooter, CardContent } from '../components';
+  import {createEventDispatcher} from 'svelte';
+  import {ButtonFooter, CardContent} from '../components';
 
-  const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher ();
   export let villains = [];
 
-  function deleteVillain(villain) {
-    dispatch('deleted', villain);
+  function deleteVillain (villain) {
+    dispatch ('deleted', villain);
   }
 
-  function selectVillain(villain) {
-    dispatch('selected', villain);
+  function selectVillain (villain) {
+    dispatch ('selected', villain);
   }
 
   const deleteOptions = {
@@ -26,26 +26,26 @@
   };
 </script>
 
-<ul class="list">
-  {#each villains as villain, index (villain.id)}
-    <li role="presentation">
-      <div class="card">
-        <CardContent name={villain.name} description={villain.description} />
-        <footer class="card-footer">
+<ul class = "list">
+  {#each villains as {id, name, description}, i (id)}
+    <li role = "presentation">
+      <div class = "card">
+        <CardContent {name} {description} />
+        <footer class = "card-footer">
           <ButtonFooter
-            {...deleteOptions}
-            dataId={villain.id}
-            dataIndex={index}
-            item={villain}
-            on:clicked={deleteVillain(villain)} />
+            {... deleteOptions}
+            dataId = {id}
+            dataIndex = {i}
+            item = {villains [i]}
+            on: clicked = {deleteVillain (villains [i])} />
           <ButtonFooter
-            {...editOptions}
-            dataId={villain.id}
-            dataIndex={index}
-            item={villain}
-            on:clicked={selectVillain(villain)} />
+            {... editOptions}
+            dataId = {id}
+            dataIndex = {i}
+            item = {villains [i]}
+            on: clicked = {selectVillain (villains [i])} />
         </footer>
       </div>
     </li>
-  {/each}
-</ul>
+  {/ each}
+</ Ul>

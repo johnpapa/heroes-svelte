@@ -27,23 +27,23 @@
 </script>
 
 <ul class="list">
-  {#each heroes as hero, index (hero.id)}
+  {#each heroes as { id, name, description }, i (id)}
     <li role="presentation">
       <div class="card">
-        <CardContent name={hero.name} description={hero.description} />
+        <CardContent {name} {description} />
         <footer class="card-footer">
           <ButtonFooter
             {...deleteOptions}
-            dataId={hero.id}
-            dataIndex={index}
-            item={hero}
-            on:clicked={deleteHero(hero)} />
+            dataId={id}
+            dataIndex={i}
+            item={heroes[i]}
+            on:clicked={deleteHero(heroes[i])} />
           <ButtonFooter
             {...editOptions}
-            dataId={hero.id}
-            dataIndex={index}
-            item={hero}
-            on:clicked={selectHero(hero)} />
+            dataId={id}
+            dataIndex={i}
+            item={heroes[i]}
+            on:clicked={selectHero(heroes[i])} />
         </footer>
       </div>
     </li>
