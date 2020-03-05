@@ -37,15 +37,13 @@
             dataId={id}
             dataIndex={i}
             item={villains[i]}
-            on:
-            clicked={deleteVillain(villains[i])} />
+            on:clicked={deleteVillain(villains[i])} />
           <ButtonFooter
             {...editOptions}
             dataId={id}
             dataIndex={i}
             item={villains[i]}
-            on:
-            clicked={selectVillain(villains[i])} />
+            on:clicked={selectVillain(villains[i])} />
         </footer>
       </div>
     </li>
