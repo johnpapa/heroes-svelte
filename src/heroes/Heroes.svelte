@@ -73,6 +73,7 @@
 <div class="content-container">
   <ListHeader
     {title}
+    ???
     {routePath}
     on:add={enableAddMode}
     on:refresh={getHeroes} />
