@@ -7,7 +7,8 @@ import postcss from 'rollup-plugin-postcss';
 import replace from '@rollup/plugin-replace';
 
 const production = !process.env.ROLLUP_WATCH;
-const API = process.env.API || '/api';
+const API = process.env.API || 'http://localhost:7071/api';
+// 'http://localhost:10627/api';
 
 export default {
   input: 'src/main.js',
@@ -23,7 +24,7 @@ export default {
       process: JSON.stringify({
         env: {
           isProd: production,
-          SVELTE_APP_API: 'http://localhost:10627/api'
+          SVELTE_APP_API: API
         }
       })
     }),

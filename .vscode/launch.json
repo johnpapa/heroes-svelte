@@ -2,11 +2,25 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Attach to Node Functions",
+      "name": "Launch Svelte",
+      "type": "chrome",
+      "request": "launch",
+      "preLaunchTask": "npm: start",
+      "url": "http://localhost:10626/",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Attach to Node Functions API",
       "type": "node",
       "request": "attach",
       "port": 9229,
       "preLaunchTask": "func: host start"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug Functions and Svelte",
+      "configurations": ["Attach to Node Functions API", "Launch Svelte"]
     }
   ]
 }
