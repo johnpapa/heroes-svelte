@@ -2,12 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Svelte",
+      "name": "Svelte: Chrome",
       "type": "chrome",
       "request": "launch",
-      "preLaunchTask": "npm: start",
-      "url": "http://localhost:10626/",
-      "webRoot": "${workspaceFolder}"
+      "preLaunchTask": "npm: dev",
+      "url": "http://localhost:10626",
+      "webRoot": "${workspaceFolder}/src",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "rollup:///src/*": "${webRoot}/*",
+        "rollup:///./src/*": "${webRoot}/*",
+        "rollup:///./*": "${webRoot}/*",
+        "rollup:///*": "*",
+        "rollup:///./~/*": "${webRoot}/node_modules/*"
+      }
     },
     {
       "name": "Attach to Node Functions API",
