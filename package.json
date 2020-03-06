@@ -4,12 +4,11 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "prestart": "npm run build",
     "start": "sirv public --cors --port 10626 --single",
     "backend": "json-server --watch db.json --routes routes.json --port 10627 --middlewares ./node_modules/json-server-reset",
     "quick": "concurrently \"npm run backend\" \"npm run dev\"",
     "func:start": "cd api && npm start && cd ..",
-    "full-stack": "concurrently \"npm run func:start\" \"npm run start\""
+    "full-stack": "concurrently \"npm run func:start\" \"npm run dev\""
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.0",
