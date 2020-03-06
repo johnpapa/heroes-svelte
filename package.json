@@ -4,6 +4,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
+    "prestart": "npm run build",
     "start": "sirv public --cors --port 10626 --single",
     "backend": "json-server --watch db.json --routes routes.json --port 10627 --middlewares ./node_modules/json-server-reset",
     "quick": "concurrently \"npm run backend\" \"npm run dev\"",
