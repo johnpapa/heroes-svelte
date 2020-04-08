@@ -1,0 +1,56 @@
+{
+  "title": "Tour 1",
+  "description": "testing this",
+  "steps": [
+    {
+      "file": "package.json",
+      "line": 24,
+      "description": "Notice we are depdending on Svelte as a dev dependency only.\n\nWe are also using rollup as our build tool to create the javascript bundles."
+    },
+    {
+      "file": "public/index.html",
+      "line": 17,
+      "description": "The index.html file is what we serve. Everything located in the public folder is served. Notice that the bundle.css is in the build folder. When we build the app, the assets are stored in the public/build folder by default."
+    },
+    {
+      "file": "public/index.html",
+      "line": 19,
+      "description": "Likewise, the bundle.js is the bundled javascript that we createin our build step."
+    },
+    {
+      "file": "src/main.js",
+      "line": 4,
+      "description": "This is the \"start here\" code. Svelte is ataching to the element in the index.html with the id of \"app\".\n\nThen it loads the first component, App.svelte, at that location."
+    },
+    {
+      "file": "public/index.html",
+      "line": 23,
+      "description": "We identify the HTML element where we want to attach our Svelte application. We will see this again in the main.js file"
+    },
+    {
+      "file": "src/App.svelte",
+      "line": 13,
+      "description": "Our first component, also known as our root component, contains our layout for our web app. Here we create the HTML elements."
+    },
+    {
+      "file": "src/App.svelte",
+      "line": 15,
+      "description": "When the user navigates to a route, a component will be loaded. The <Router> element identifies this location."
+    },
+    {
+      "file": "src/App.svelte",
+      "line": 19,
+      "description": "This is the defaut route of /. We redirect this to /heroes"
+    },
+    {
+      "file": "src/App.svelte",
+      "line": 22,
+      "description": "The series of routes are defined here."
+    },
+    {
+      "file": "src/App.svelte",
+      "line": 25,
+      "description": "This is the catch-all route. If not route matches, we load this PageNotFound component\n"
+    }
+  ]
+}
