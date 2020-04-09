@@ -8,7 +8,7 @@ import replace from '@rollup/plugin-replace';
 
 const production = !process.env.ROLLUP_WATCH;
 const API =
-  process.env.API || production ? '/.api' : 'http://localhost:7071/api';
+  process.env.API || production ? '/api' : 'http://localhost:7071/api';
 // 'http://localhost:10627/api';
 
 export default {
