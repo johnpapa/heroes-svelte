@@ -52,7 +52,6 @@ Hosted in [Azure](https://azure.microsoft.com/en-us/free/?wt.mc_id=heroessvelte-
 
 Each of these apps contain:
 
-
 Each of the apps written in the various frameworks/libraries has been designed to have similar features. While consistency is key, I want these apps to be comparable, yet done in an way authentic to each respective framework.
 
 Each project represents heroes and villains. The user can list them and edit them.
@@ -126,3 +125,5 @@ Thank you to [Sarah Drasner](https://twitter.com/), [Brian Holt](https://twitter
 - [Debugging Angular in VS Code](https://code.visualstudio.com/docs/nodejs/angular-tutorial?wt.mc_id=heroessvelte-github-jopapa)
 - [Debugging React in VS Code](https://code.visualstudio.com/docs/nodejs/reactjs-tutorial?wt.mc_id=heroessvelte-github-jopapa)
 - [Debugging Vue in VS Code](https://code.visualstudio.com/docs/nodejs/vuejs-tutorial?wt.mc_id=heroessvelte-github-jopapa)
+
+.
