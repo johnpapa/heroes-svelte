@@ -28,7 +28,7 @@
   "compounds": [
     {
       "name": "Debug Functions and Svelte",
-      "configurations": ["Attach to Node Functions API", "Launch Svelte"]
+      "configurations": ["Attach to Node Functions API", "Svelte: Chrome"]
     }
   ]
 }
